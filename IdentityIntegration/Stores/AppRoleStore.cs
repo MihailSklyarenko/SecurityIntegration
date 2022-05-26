@@ -5,9 +5,9 @@ using SecurityIntegration.Database.IdentityEntries;
 
 namespace SecurityIntegration.Stores;
 
-public class AppRoleStore : RoleStore<Role, DataContext, Guid, IdentityUserRole<Guid>, IdentityRoleClaim<Guid>>
+public class AppRoleStore : RoleStore<Role, IdentityContext, Guid, IdentityUserRole<Guid>, IdentityRoleClaim<Guid>>
 {
-    public AppRoleStore(DataContext context, IdentityErrorDescriber describer = null) : base(context, describer)
+    public AppRoleStore(IdentityContext context, IdentityErrorDescriber describer = null) : base(context, describer)
     {
     }
 }

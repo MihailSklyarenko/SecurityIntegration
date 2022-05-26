@@ -1,7 +1,7 @@
-﻿using SecurityIntegration.Configutarion.Jwt;
-using SecurityIntegration.Database.IdentityEntries;
-using Microsoft.Extensions.Options;
+﻿using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using SecurityIntegration.Configutarion.Jwt;
+using SecurityIntegration.Database.IdentityEntries;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -23,13 +23,14 @@ public class JwtGenerator : IJwtGenerator
     {
         var claims = new List<Claim> 
         { 
-            new Claim(ClaimTypes.NameIdentifier, user.UserName) 
+            new Claim(ClaimTypes.Name, user.UserName),
         };
 
         var credentials = new SigningCredentials(_key, SecurityAlgorithms.HmacSha512Signature);
 
         var tokenDescriptor = new SecurityTokenDescriptor
         {
+            Issuer = _options.Issuer,
             Subject = new ClaimsIdentity(claims),
             Expires = DateTime.Now.AddMinutes(_options.ExpireInMinutes),
             SigningCredentials = credentials

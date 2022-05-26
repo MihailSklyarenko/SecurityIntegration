@@ -4,6 +4,7 @@ namespace SecurityIntegration.Services;
 
 public interface IUserService
 {
-    Task<UserDto> Register(UserCreateRequest request);
-    Task<UserDto> Login(UserLoginRequest request);
+    Task<UserDto> Login(UserLoginRequest request, CancellationToken token);
+    Task LogOut(UserLoginRequest request, CancellationToken token);
+    Task<UserDto> Register(UserCreateRequest request, CancellationToken token);
 }

@@ -8,7 +8,7 @@ using System.Text;
 
 namespace SecurityIntegration.Jwt;
 
-internal class JwtGenerator : IJwtGenerator
+public class JwtGenerator : IJwtGenerator
 {
     private readonly JwtOptions _options;
     private readonly SymmetricSecurityKey _key;
@@ -23,7 +23,7 @@ internal class JwtGenerator : IJwtGenerator
     {
         var claims = new List<Claim> 
         { 
-            new Claim(JwtRegisteredClaimNames.NameId, user.UserName) 
+            new Claim(ClaimTypes.NameIdentifier, user.UserName) 
         };
 
         var credentials = new SigningCredentials(_key, SecurityAlgorithms.HmacSha512Signature);

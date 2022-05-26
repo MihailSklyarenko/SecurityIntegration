@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 using SecurityIntegration.Database.IdentityEntries;
-using System.Collections.Generic;
 
 namespace SecurityIntegration.Managers;
 

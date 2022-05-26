@@ -2,7 +2,7 @@
 
 namespace SecurityIntegration.Jwt;
 
-internal interface IJwtGenerator
+public interface IJwtGenerator
 {
     string CreateToken(User user);
 }

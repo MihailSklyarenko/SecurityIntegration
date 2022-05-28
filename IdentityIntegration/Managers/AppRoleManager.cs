@@ -10,7 +10,7 @@ public class AppRoleManager : RoleManager<Role>
         IEnumerable<IRoleValidator<Role>> roleValidators,
         ILookupNormalizer keyNormalizer,
         IdentityErrorDescriber errors,
-        ILogger<RoleManager<Role>> logger)
+        ILogger<AppRoleManager> logger)
         : base(store, roleValidators, keyNormalizer, errors, logger)
     {
     }

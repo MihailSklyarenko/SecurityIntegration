@@ -11,7 +11,7 @@ namespace IdentityDemoApi.Controllers
         [HttpGet]
         public IActionResult GetLogin()
         {
-            return Ok($"Ваш логин: {User.Identity.Name}");
+            return Ok($"Ваш логин: {User.Identity?.Name}");
         }
     }
 }

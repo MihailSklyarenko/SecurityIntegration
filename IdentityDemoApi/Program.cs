@@ -1,3 +1,4 @@
+using IdentityDemoApi.Middlewares;
 using Microsoft.EntityFrameworkCore;
 using SecurityIntegration.Database.IdentityContext;
 using SecurityIntegration.DependencyInjection;
@@ -13,6 +14,8 @@ builder.IntegrateJWT();
 builder.IntegrateSwaggerWithBearerAuth("Identity.Api", "v1");
 
 var app = builder.Build();
+
+app.UseMiddleware<ExceptionHandler>();
 
 if (app.Environment.IsDevelopment())
 {
